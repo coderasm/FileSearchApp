@@ -89,5 +89,25 @@ namespace StringSearchApp
         resultList.SetSelected(highlightIndex, true);
       }
     }
+
+    private void firstButtonClick(object sender, EventArgs e)
+    {
+      if (resultList.Items.Count > 0)
+      {
+        resultList.SetSelected(highlightIndex, false);
+        highlightIndex = 0;
+        resultList.SetSelected(highlightIndex, true);
+      }
+    }
+
+    private void lastButtonClick(object sender, EventArgs e)
+    {
+      if (resultList.Items.Count > 0)
+      {
+        resultList.SetSelected(highlightIndex, false);
+        highlightIndex = resultList.Items.Count - 1;
+        resultList.SetSelected(highlightIndex, true);
+      }
+    }
   }
 }

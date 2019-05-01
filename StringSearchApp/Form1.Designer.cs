@@ -171,7 +171,7 @@
       this.Controls.Add(this.filePath);
       this.Controls.Add(this.button1);
       this.Name = "Form1";
-      this.Text = "Form1";
+      this.Text = "File Search";
       this.ResumeLayout(false);
       this.PerformLayout();
 

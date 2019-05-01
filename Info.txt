@@ -1,0 +1,5 @@
+Prompt user to choose a text file.
+Stream out all text and split text by line.
+Search each line for matches and store those matches.
+Display the matches in a list.
+Matches can be navigated using first, previous, next, last buttons.

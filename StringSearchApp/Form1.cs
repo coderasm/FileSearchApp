@@ -25,12 +25,15 @@ namespace StringSearchApp
 
     private void loadButtonClicked(object sender, EventArgs e)
     {
+      //prompt for file
       if (fileDialog.ShowDialog() == DialogResult.OK)
       {
         try
         {
           filePath.Text = fileDialog.FileName;
+          //read file
           var sr = new StreamReader(fileDialog.FileName);
+          //split file by lines
           fileLines = sr.ReadToEnd().Split('\n');
         }
         catch (SecurityException ex)
@@ -43,9 +46,11 @@ namespace StringSearchApp
 
     private void searchButtonClicked(object sender, EventArgs e)
     {
+      //only search if there is search text and a file is loaded
       if (searchTextBox.Text != "" && fileLines.Length > 0)
       {
         resultList.Items.Clear();
+        //search only for whole words
         var regex = new Regex($@"(^|\s){searchTextBox.Text}(\s|$)", RegexOptions.IgnoreCase);
         for (int i = 0; i < fileLines.Length; i++)
         {

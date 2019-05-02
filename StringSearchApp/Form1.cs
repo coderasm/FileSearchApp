@@ -46,7 +46,7 @@ namespace StringSearchApp
       if (searchTextBox.Text != "" && fileLines.Length > 0)
       {
         resultList.Items.Clear();
-        var regex = new Regex($@"(^|\s){searchTextBox.Text}(\s|$)", RegexOptions.IgnoreCase);
+        var regex = new Regex($@"{searchTextBox.Text}", RegexOptions.IgnoreCase);
         for (int i = 0; i < fileLines.Length; i++)
         {
           var matches = regex.Matches(fileLines[i]);

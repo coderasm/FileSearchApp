@@ -51,7 +51,7 @@ namespace StringSearchApp
       {
         resultList.Items.Clear();
         //search only for whole words
-        var regex = new Regex($@"(^|\s){searchTextBox.Text}(\s|$)", RegexOptions.IgnoreCase);
+        var regex = new Regex($@"(?:^|\s)([^\s]*{searchTextBox.Text}[^\s]*)(?:\s|$)", RegexOptions.IgnoreCase);
         for (int i = 0; i < fileLines.Length; i++)
         {
           var matches = regex.Matches(fileLines[i]);
@@ -59,7 +59,7 @@ namespace StringSearchApp
           {
             foreach (var match in matches)
             {
-              var entry = $"Line {i + 1}: Word: \"{match.ToString()}\", sentence: {fileLines[i]}";
+              var entry = $"Line {i + 1}: Word: \"{match.ToString().Trim()}\", sentence: {fileLines[i]}";
               resultList.Items.Add(entry);
             }
           }

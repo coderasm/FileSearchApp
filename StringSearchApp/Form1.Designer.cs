@@ -38,6 +38,8 @@
       this.resultList = new System.Windows.Forms.ListBox();
       this.previousButton = new System.Windows.Forms.Button();
       this.nextButton = new System.Windows.Forms.Button();
+      this.firstButton = new System.Windows.Forms.Button();
+      this.lastButton = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // button1
@@ -88,7 +90,7 @@
       // resultLabel
       // 
       this.resultLabel.AutoSize = true;
-      this.resultLabel.Location = new System.Drawing.Point(549, 17);
+      this.resultLabel.Location = new System.Drawing.Point(541, 42);
       this.resultLabel.Name = "resultLabel";
       this.resultLabel.Size = new System.Drawing.Size(45, 13);
       this.resultLabel.TabIndex = 5;
@@ -97,7 +99,7 @@
       // resultsCount
       // 
       this.resultsCount.AutoSize = true;
-      this.resultsCount.Location = new System.Drawing.Point(589, 17);
+      this.resultsCount.Location = new System.Drawing.Point(581, 42);
       this.resultsCount.Name = "resultsCount";
       this.resultsCount.Size = new System.Drawing.Size(13, 13);
       this.resultsCount.TabIndex = 6;
@@ -106,16 +108,16 @@
       // resultList
       // 
       this.resultList.FormattingEnabled = true;
-      this.resultList.Location = new System.Drawing.Point(157, 39);
+      this.resultList.Location = new System.Drawing.Point(157, 65);
       this.resultList.Name = "resultList";
-      this.resultList.Size = new System.Drawing.Size(852, 589);
+      this.resultList.Size = new System.Drawing.Size(852, 563);
       this.resultList.TabIndex = 7;
       // 
       // previousButton
       // 
-      this.previousButton.Location = new System.Drawing.Point(12, 110);
+      this.previousButton.Location = new System.Drawing.Point(81, 110);
       this.previousButton.Name = "previousButton";
-      this.previousButton.Size = new System.Drawing.Size(75, 23);
+      this.previousButton.Size = new System.Drawing.Size(63, 23);
       this.previousButton.TabIndex = 8;
       this.previousButton.Text = "Previous";
       this.previousButton.UseVisualStyleBackColor = true;
@@ -125,17 +127,39 @@
       // 
       this.nextButton.Location = new System.Drawing.Point(12, 139);
       this.nextButton.Name = "nextButton";
-      this.nextButton.Size = new System.Drawing.Size(75, 23);
+      this.nextButton.Size = new System.Drawing.Size(63, 23);
       this.nextButton.TabIndex = 9;
       this.nextButton.Text = "Next";
       this.nextButton.UseVisualStyleBackColor = true;
       this.nextButton.Click += new System.EventHandler(this.nextClick);
+      // 
+      // firstButton
+      // 
+      this.firstButton.Location = new System.Drawing.Point(12, 110);
+      this.firstButton.Name = "firstButton";
+      this.firstButton.Size = new System.Drawing.Size(63, 23);
+      this.firstButton.TabIndex = 10;
+      this.firstButton.Text = "First";
+      this.firstButton.UseVisualStyleBackColor = true;
+      this.firstButton.Click += new System.EventHandler(this.firstButtonClick);
+      // 
+      // lastButton
+      // 
+      this.lastButton.Location = new System.Drawing.Point(81, 139);
+      this.lastButton.Name = "lastButton";
+      this.lastButton.Size = new System.Drawing.Size(63, 23);
+      this.lastButton.TabIndex = 11;
+      this.lastButton.Text = "Last";
+      this.lastButton.UseVisualStyleBackColor = true;
+      this.lastButton.Click += new System.EventHandler(this.lastButtonClick);
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1021, 641);
+      this.Controls.Add(this.lastButton);
+      this.Controls.Add(this.firstButton);
       this.Controls.Add(this.nextButton);
       this.Controls.Add(this.previousButton);
       this.Controls.Add(this.resultList);
@@ -147,7 +171,7 @@
       this.Controls.Add(this.filePath);
       this.Controls.Add(this.button1);
       this.Name = "Form1";
-      this.Text = "Form1";
+      this.Text = "File Search";
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -165,6 +189,8 @@
     private System.Windows.Forms.ListBox resultList;
     private System.Windows.Forms.Button previousButton;
     private System.Windows.Forms.Button nextButton;
+    private System.Windows.Forms.Button firstButton;
+    private System.Windows.Forms.Button lastButton;
   }
 }
 

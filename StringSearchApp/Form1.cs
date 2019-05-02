@@ -25,12 +25,15 @@ namespace StringSearchApp
 
     private void loadButtonClicked(object sender, EventArgs e)
     {
+      //prompt for file
       if (fileDialog.ShowDialog() == DialogResult.OK)
       {
         try
         {
           filePath.Text = fileDialog.FileName;
+          //read file
           var sr = new StreamReader(fileDialog.FileName);
+          //split file by lines
           fileLines = sr.ReadToEnd().Split('\n');
         }
         catch (SecurityException ex)
@@ -43,10 +46,12 @@ namespace StringSearchApp
 
     private void searchButtonClicked(object sender, EventArgs e)
     {
+      //only search if there is search text and a file is loaded
       if (searchTextBox.Text != "" && fileLines.Length > 0)
       {
         resultList.Items.Clear();
-        var regex = new Regex($@"{searchTextBox.Text}", RegexOptions.IgnoreCase);
+        //search only for whole words
+        var regex = new Regex($@"(^|\s){searchTextBox.Text}(\s|$)", RegexOptions.IgnoreCase);
         for (int i = 0; i < fileLines.Length; i++)
         {
           var matches = regex.Matches(fileLines[i]);
@@ -86,6 +91,26 @@ namespace StringSearchApp
           highlightIndex = 0;
         else
           ++highlightIndex;
+        resultList.SetSelected(highlightIndex, true);
+      }
+    }
+
+    private void firstButtonClick(object sender, EventArgs e)
+    {
+      if (resultList.Items.Count > 0)
+      {
+        resultList.SetSelected(highlightIndex, false);
+        highlightIndex = 0;
+        resultList.SetSelected(highlightIndex, true);
+      }
+    }
+
+    private void lastButtonClick(object sender, EventArgs e)
+    {
+      if (resultList.Items.Count > 0)
+      {
+        resultList.SetSelected(highlightIndex, false);
+        highlightIndex = resultList.Items.Count - 1;
         resultList.SetSelected(highlightIndex, true);
       }
     }
